@@ -23,5 +23,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		define( 'MMBM_URL', plugin_dir_url( __FILE__ ) );
         define( 'MMBM_PATH', plugin_dir_path( __FILE__ ) );
         define( 'MMBM_VERSION', '1.0.0' );
+
+		/**Hooks Defining */
+		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
 	}
+
+
+
+
+	/** Loading Plugin Text Domain */
+	public function mmbm_plugins_loaded(){
+		load_plugin_textdomain('maintenance-mode-by-monk', false, MMBM_URL . '/languages');
+    }
+	
  }
