@@ -24,8 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         define( 'MMBM_PATH', plugin_dir_path( __FILE__ ) );
         define( 'MMBM_VERSION', '1.0.0' );
 
+		/** Loading Assets */
+
+		// add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
+		// add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
+
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
+		add_action( 'init', [$this, 'mmbm_maintenance_init'] );
 	}
 
 
@@ -33,7 +39,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	/** Loading Plugin Text Domain */
 	public function mmbm_plugins_loaded(){
-		load_plugin_textdomain('maintenance-mode-by-monk', false, MMBM_URL . '/languages');
+		load_plugin_textdomain('maintenance-mode-by-monk', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    }
+
+	/** Loading Public Assets */
+	// public function mmbm_public_assets_loading(){
+	// 	wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
+	// 	wp_enqueue_script( 'mmbm-public-scripts', MMBM_URL.'public/js/maintenance-mode-by-monk-public.js', ['jquery'], MMBM_VERSION, true );
+	// }
+
+	/** Loading Admin Assets */
+	// public function mmbm_admin_assets_loading(){
+	// 	wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
+	// 	wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
+	// }
+
+	/** Maintenance Main Function */
+	public function mmbm_maintenance_init(){
+		if (current_user_can('administrator')) {
+            return;
+        }
+
+        if (!$this->mmbm_is_admin() && !is_customize_preview()) {
+            add_filter('template_include', [ $this, 'mmbm_maintenance_mode_template']);
+        }
+	}
+
+	public function mmbm_is_admin() {
+        return strpos($_SERVER['REQUEST_URI'], '/wp-admin/') !== false;
+    }
+
+    public function mmbm_maintenance_mode_template($template) {
+        return MMBM_PATH . 'public/partials/maintenance_mode_preview.php';
     }
 	
  }
+
+ new Mmmbs_Maintenance_Mode_Main();
