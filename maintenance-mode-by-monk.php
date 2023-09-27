@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/** Loading Admin Assets */
 	public function mmbm_admin_assets_loading(){
 		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
-		// wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
+		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
 	}
 
 	/** Maintenance Main Function */
