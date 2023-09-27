@@ -27,12 +27,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/** Loading Assets */
 
 		// add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
-		// add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
+		add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
 
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
 		add_action( 'init', [$this, 'mmbm_maintenance_init'] );
 		add_action( 'admin_bar_menu', [$this, 'mmbm_admin_bar_menu'], 90 );
+		add_action( 'admin_menu', [$this, 'mmbm_admin_menu'] );
 	}
 
 
@@ -50,10 +51,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// }
 
 	/** Loading Admin Assets */
-	// public function mmbm_admin_assets_loading(){
-	// 	wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
-	// 	wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
-	// }
+	public function mmbm_admin_assets_loading(){
+		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
+		// wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
+	}
 
 	/** Maintenance Main Function */
 	public function mmbm_maintenance_init(){
@@ -79,11 +80,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	public function mmbm_admin_bar_menu($mmbm_admin_bar){
 		$mmbm_admin_bar->add_menu(
 			array(
-				'id' => 'maintenance-mode-by-monk',
+				'id' => 'maintenance_mode_by_monk',
 				'title' => __('Maintenance Mode by MONK', 'maintenance-mode-by-monk'),
-				'href' =>  admin_url( 'maintenance-mode-by-monk'), 
+				'href' => admin_url('page=maintenance-mode-by-monk')
 			)
 		);
+		
+	}
+
+	/** Admin Menu */
+	public function mmbm_admin_menu(){
+		add_menu_page( __('Maintenance Mode Settings', 'maintenance-mode-by-monk'), __('Maintanence', 'maintenance-mode-by-monk'), 'manage_options', 'maintenance-mode-by-monk', [$this, 'mmbs_add_submenu_page'], 'dashicons-controls-pause', '60' );
+	}
+	public function mmbs_add_submenu_page(){
+		require_once(MMBM_PATH.'admin/partials/maintenance-mode-by-monk-settings.php');
 	}
 	
  }
