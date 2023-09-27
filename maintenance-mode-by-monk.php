@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
 		add_action( 'init', [$this, 'mmbm_maintenance_init'] );
+		add_action( 'admin_bar_menu', [$this, 'mmbm_admin_bar_menu'], 90 );
 	}
 
 
@@ -72,6 +73,18 @@ if ( ! defined( 'ABSPATH' ) ) {
     public function mmbm_maintenance_mode_template($template) {
         return MMBM_PATH . 'public/partials/maintenance_mode_preview.php';
     }
+
+
+	/** Admin Bar Menu  */
+	public function mmbm_admin_bar_menu($mmbm_admin_bar){
+		$mmbm_admin_bar->add_menu(
+			array(
+				'id' => 'maintenance-mode-by-monk',
+				'title' => __('Maintenance Mode by MONK', 'maintenance-mode-by-monk'),
+				'href' =>  admin_url( 'maintenance-mode-by-monk'), 
+			)
+		);
+	}
 	
  }
 
