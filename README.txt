@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: masumwp
-Donate link: https://masum.anothermonk.com/
+Donate link: https://www.buymeacoffee.com/masumbillah
 Tags: comments, spam
 Requires at least: 3.0.1
 Tested up to: 3.4
