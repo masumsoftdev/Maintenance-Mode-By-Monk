@@ -32,8 +32,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
 		add_action( 'init', [$this, 'mmbm_maintenance_init'] );
+
 		add_action( 'admin_bar_menu', [$this, 'mmbm_admin_bar_menu'], 90 );
 		add_action( 'admin_menu', [$this, 'mmbm_admin_menu'] );
+
+		add_action( 'wp_ajax_mmbm_ajax_action', [$this, 'mmbm_ajax_action_callback'] );
+        add_action( 'wp_ajax_nopriv_mmbm_ajax_action', [$this, 'mmbm_ajax_action_callback'] );
 	}
 
 
@@ -55,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
 		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
 		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_enable_disable_object', [
-			'admin_url' => admin_url( 'admin-ajax.php' ),
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    	=> wp_create_nonce('mmbm_ajax_nonce')
 		] );
 	}
@@ -101,6 +105,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$markup =  Mmbm_Settings::mmbm_loading_settings_markup();
 		echo $markup;
 	}
+
+	public function mmbm_ajax_action_callback(){
+
+        if (isset($_POST['nonce'])) {
+            $is_checked = sanitize_text_field($_POST['is_checked']);
+            
+            update_option('mmbm_maintenance_mode_enabled', $is_checked);
+            
+            echo 'Updated successfully.....';
+        exit;
+    }
+ 
+}
+	
 	
  }
 

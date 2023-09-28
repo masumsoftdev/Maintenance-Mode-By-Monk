@@ -14,10 +14,11 @@ class Mmbm_Settings{
             <hr>
             <div>
                 <label class="switch">
-                    <input type="checkbox" name="checkbox" checked>
+                    <input type="checkbox" name="checkbox" id="mmbm_enable_disable" checked>
                     <span class="slider round"></span>
                 </label>
                 <span class="on_off_text">ON</span>
+                <p id="on_off_text_update_notice"></p>
             </div>
         </div>
 
@@ -27,9 +28,9 @@ class Mmbm_Settings{
 
         return $markup;
     }
+
+ 
+
+
+
 }
-
-
-
-
-
