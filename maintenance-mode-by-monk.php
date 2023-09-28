@@ -54,6 +54,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	public function mmbm_admin_assets_loading(){
 		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
 		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
+		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_enable_disable_object', [
+			'admin_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    	=> wp_create_nonce('mmbm_ajax_nonce')
+		] );
 	}
 
 	/** Maintenance Main Function */
@@ -82,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			array(
 				'id' => 'maintenance_mode_by_monk',
 				'title' => __('Maintenance Mode by MONK', 'maintenance-mode-by-monk'),
-				'href' => admin_url('page=maintenance-mode-by-monk')
+				'href' => admin_url('admin.php?page=maintenance-mode-by-monk')
 			)
 		);
 		
