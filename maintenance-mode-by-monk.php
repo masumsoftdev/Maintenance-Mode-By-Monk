@@ -98,6 +98,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	public function mmbs_add_submenu_page(){
 		require_once(MMBM_PATH.'admin/partials/maintenance-mode-by-monk-settings.php');
+		$markup =  Mmbm_Settings::mmbm_loading_settings_markup();
+		echo $markup;
 	}
 	
  }
