@@ -22,12 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/** Initializing the Constants */
 		define( 'MMBM_URL', plugin_dir_url( __FILE__ ) );
         define( 'MMBM_PATH', plugin_dir_path( __FILE__ ) );
+        define( 'MMBM_BASENAME', plugin_basename(__FILE__) );
         define( 'MMBM_VERSION', '1.0.0' );
 
 		/** Loading Assets */
 
 		// add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
 		add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
+
+		add_filter('plugin_action_links_' . plugin_basename(__FILE__) , [$this, 'mmbm_plugin_settings_link']);
+
 
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
@@ -118,6 +122,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
  
 }
+
+	public function mmbm_plugin_settings_link($links){
+		$menu_title = __('Settings', 'maintenance-mode-by-monk');
+		$links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=maintenance-mode-by-monk') ) .'">'. $menu_title .'</a>';  
+		return $links;
+		return $links;
+	}
 	
 	
  }
