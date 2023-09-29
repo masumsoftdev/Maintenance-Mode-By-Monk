@@ -27,10 +27,11 @@
               nonce: mmbm_option_enable_disable_object.nonce,
           },
           success: function(res) {
-            function shwoing_message(){
-              $('#on_off_text_update_notice').text(res);
-              }
-            setTimeout(shwoing_message, 1000);
+            $('#on_off_text_update_notice').text(res);
+            setTimeout(() => {
+              $('#on_off_text_update_notice').text('');
+            }, 1500);
+            
            
           },
       });
