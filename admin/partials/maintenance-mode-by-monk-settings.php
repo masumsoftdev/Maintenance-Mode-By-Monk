@@ -19,17 +19,34 @@ class Mmbm_Settings{
                 </label>
                 <span class="on_off_text">ON</span>
                 <p id="on_off_text_update_notice"></p>
-            </div>
         </div>
 
+        <div class="wrap mmbm_info_form">
+
+            <form method="post" action="">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_heading">Maintenance Title:</label></th>
+                            <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading"  class="regular-text"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_description">Maintenance Description:</label></th>
+                            <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" class="regular-text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" id="mmbm_submit" class="button button-primary" value="Save Changes">
+            </form>    
+        </div>
         <?php 
 
+       
         $markup = ob_get_clean();
 
         return $markup;
     }
-
- 
 
 
 

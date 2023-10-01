@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	public function mmbm_admin_assets_loading(){
 		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
 		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
-		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_enable_disable_object', [
+		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_object', [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    	=> wp_create_nonce('mmbm_ajax_nonce')
 		] );
@@ -111,15 +111,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 
 	public function mmbm_ajax_action_callback(){
+	
+	
+		
+			// $custom_action = sanitize_text_field($_POST['custom_action']);
+				// if($custom_action === 'enable_disable'){
 
-        if (isset($_POST['nonce'])) {
-            $is_checked = sanitize_text_field($_POST['is_checked']);
-            
-            update_option('mmbm_maintenance_mode_enabled', $is_checked);
-            
-            echo 'Updated successfully.....';
-        exit;
-    }
+
+					$isChecked = $_POST['isChecked'];
+
+					// $is_checked = sanitize_text_field($is_checked);
+				
+					update_option('mmbm_maintenance_mode_enabled', $isChecked);
+					
+					echo 'Updated successfully.....';
+			
+
+	
+
+		exit;
+		
  
 }
 
