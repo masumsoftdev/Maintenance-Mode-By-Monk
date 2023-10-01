@@ -17,16 +17,25 @@
     /** Ajax Data Save */
 
     $('#mmbm_enable_disable').change(function (){
-      // var isChecked = $(this).is(':checked');
       mmbm_sending_ajax_request('enable_disable');
+    });
+
+    $('#mmbm_submit').click(function (e){
+      e.preventDefault();
+      mmbm_sending_ajax_request('send_input_values');
     });
 
       function mmbm_sending_ajax_request(custom_action){
         var isChecked = $('#mmbm_enable_disable').is(':checked');
+
+        var mmbm_maintenanace_heading = $('#mmbm_maintenanace_heading').val();
+        var mmbm_maintenanace_description = $('#mmbm_maintenanace_description').val();
         var requestData = {
           action: 'mmbm_ajax_action',
           custom_action: custom_action,
-          isChecked : isChecked
+          isChecked : isChecked,
+          heading: mmbm_maintenanace_heading,
+          description: mmbm_maintenanace_description
         
         };
 

@@ -111,22 +111,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 
 	public function mmbm_ajax_action_callback(){
-	
-	
-		
-			// $custom_action = sanitize_text_field($_POST['custom_action']);
-				// if($custom_action === 'enable_disable'){
 
-
-					$isChecked = $_POST['isChecked'];
-
-					// $is_checked = sanitize_text_field($is_checked);
+			$custom_action = $_POST['custom_action'];
+			if($custom_action === 'enable_disable'){
 				
-					update_option('mmbm_maintenance_mode_enabled', $isChecked);
-					
-					echo 'Updated successfully.....';
-			
-
+				$isChecked = $_POST['isChecked'];
+				
+				update_option('mmbm_maintenance_mode_enabled', $isChecked);
+				
+				echo 'Updated successfully.....';
+			}
+			if($custom_action === 'send_input_values'){
+				$mmbm_options_data = [
+					'heading' => $_POST['heading'],
+					'description' => $_POST['description']
+				];
+				update_option('mmbm_maintenance_options', $mmbm_options_data);
+			}
 	
 
 		exit;
