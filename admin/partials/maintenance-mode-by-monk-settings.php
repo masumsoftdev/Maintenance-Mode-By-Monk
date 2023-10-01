@@ -22,18 +22,24 @@ class Mmbm_Settings{
         </div>
 
         <div class="wrap mmbm_info_form">
+            <?php
+                $mmbs_info = get_option( 'mmbm_maintenance_options' );
+
+                $mmbs_heading = $mmbs_info['heading'];
+                $mmbs_description = $mmbs_info['description'];
+            ?>
 
             <form method="post" action="">
                 <table class="form-table" role="presentation">
                     <tbody>
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_heading">Maintenance Title:</label></th>
-                            <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading"  class="regular-text"></td>
+                            <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading" value="<?php echo $mmbs_heading ? $mmbs_heading:'' ?>" class="regular-text"></td>
                         </tr>
 
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_description">Maintenance Description:</label></th>
-                            <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" class="regular-text"></td>
+                            <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" value="<?php echo $mmbs_description ? $mmbs_description : '' ?>" class="regular-text"></td>
                         </tr>
                     </tbody>
                 </table>

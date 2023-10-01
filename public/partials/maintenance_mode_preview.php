@@ -21,10 +21,17 @@
 }
 </style>
 
+
+<?php
+$mmbs_info = get_option( 'mmbm_maintenance_options' );
+
+$mmbs_heading = $mmbs_info['heading'];
+$mmbs_description = $mmbs_info['description'];
+?>
+
 <div id="mmbm-maintenance-mode">
-        <h1>Website Under Maintenance</h1>
-        <p>We're sorry for the inconvenience, but we're performing some maintenance at the moment.</p>
-        <p>We'll be back online shortly. Please check back soon.</p>
+        <h1><?php echo $mmbs_heading ? $mmbs_heading: '' ?></h1>
+        <p><?php echo $mmbs_description ? $mmbs_description : '' ?></p>
 </div>
 
 <?php
