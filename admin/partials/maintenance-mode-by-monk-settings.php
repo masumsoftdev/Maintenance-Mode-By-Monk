@@ -25,8 +25,8 @@ class Mmbm_Settings{
             <?php
                 $mmbs_info = get_option( 'mmbm_maintenance_options' );
 
-                $mmbs_heading = $mmbs_info['heading'];
-                $mmbs_description = $mmbs_info['description'];
+                $mmbs_heading = stripslashes($mmbs_info['heading']);
+                $mmbs_description = stripslashes($mmbs_info['description']);
             ?>
 
             <form method="post" action="">
