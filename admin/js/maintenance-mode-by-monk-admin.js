@@ -39,8 +39,6 @@
         
         };
 
-        console.log(requestData)
-
           $.ajax({
             type: 'POST',
             url: mmbm_option_object.ajax_url, 
@@ -48,16 +46,21 @@
             data: requestData,
             success: function(res) {
 
-                // if (action === 'enable_disable') {
+                if (custom_action === 'enable_disable') {
 
-                //   $('#on_off_text_update_notice').text(res);
-                //   setTimeout(() => {
-                //     $('#on_off_text_update_notice').text('');
-                //   }, 1500);
+                  $('#on_off_text_update_notice').text(res);
+                  setTimeout(() => {
+                    $('#on_off_text_update_notice').text('');
+                  }, 1500);
 
-                // } else if (action === 'action2') {
-
-                // }
+                }
+                
+                if(custom_action === 'send_input_values'){
+                  $('#others_text_update_notice').text(res);
+                  setTimeout(() => {
+                    $('#others_text_update_notice').text('');
+                  }, 1500);
+                } 
     
             },
             error: function(error) {
@@ -67,38 +70,6 @@
       }
  
 
-
-  // /** Dealing Others Options */
-
-  // $('#mmbm_submit').on('click', function (e){
-  //   e.preventDefault();
-
-  //   var mmbm_maintenanace_heading = $('#mmbm_maintenanace_heading').val();
-  //   var mmbm_maintenanace_description = $('#mmbm_maintenanace_description').val();
-
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: mmbm_option_enable_disable_object.ajax_url,
-  //     data: {
-  //         action: 'mmbm_ajax_action',
-  //         heading: mmbm_maintenanace_heading,
-  //         description: mmbm_maintenanace_description,
-  //         nonce: mmbm_option_enable_disable_object.nonce,
-  //     },
-  //     success: function(res) {
-  //       // $('#on_off_text_update_notice').text(res);
-  //       // setTimeout(() => {
-  //       //   $('#on_off_text_update_notice').text('');
-  //       // }, 1500);
-        
-       
-  //     },
-  // });
-    
-  // });
-  
-
-  
  
 
 })( jQuery );

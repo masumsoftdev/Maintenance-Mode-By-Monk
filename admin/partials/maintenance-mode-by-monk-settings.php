@@ -44,6 +44,7 @@ class Mmbm_Settings{
                     </tbody>
                 </table>
                 <input type="submit" id="mmbm_submit" class="button button-primary" value="Save Changes">
+                <p id="others_text_update_notice"></p>
             </form>    
         </div>
         <?php 

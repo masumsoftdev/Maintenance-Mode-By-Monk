@@ -127,6 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'description' => $_POST['description']
 				];
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
+				echo 'Updated successfully.....';
 			}
 	
 
