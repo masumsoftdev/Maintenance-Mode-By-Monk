@@ -71,6 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    	=> wp_create_nonce('mmbm_ajax_nonce')
 		] );
+		wp_enqueue_media();
 	}
 
 	/** Maintenance Main Function */

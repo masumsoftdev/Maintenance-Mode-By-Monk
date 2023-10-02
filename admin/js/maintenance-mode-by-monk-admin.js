@@ -68,6 +68,26 @@
             }
         });
       }
+
+
+
+     //Manage the Image 
+
+     $(document).on("click", "#mmbm_maintenanace_logo", function (e) {
+      e.preventDefault();
+      var image = wp.media({
+          title: "Upload Maintenance Page Logo",
+          multiple: false,
+        })
+        .open()
+        .on("select", function (e) {
+          var upload_image = image.state().get("selection").first();
+          var imagejson = upload_image.toJSON();
+          console.log(imagejson.url);
+          $("#mmbm_logo_preview").attr("src", imagejson.url);
+          // jQuery("#book_cover_image").val(imagejson.url);
+        });
+    });
  
 
  
