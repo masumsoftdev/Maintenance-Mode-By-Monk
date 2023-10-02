@@ -10,6 +10,11 @@
     text-align: center;
 }
 
+#mmbm_logo_preview{
+    width: 100px;
+    height: 100px;
+}
+
 #mmbm-maintenance-mode h1 {
     font-size: 50px;
     margin-bottom: 20px;
@@ -31,7 +36,7 @@ $logo_url = stripslashes($mmbs_info['logo_url']);
 ?>
 
 <div id="mmbm-maintenance-mode">
-        <img src="<?php echo $logo_url; ?>">
+        <img id="mmbm_logo_preview" src="<?php echo $logo_url; ?>">
         <h1><?php echo $mmbs_heading ? $mmbs_heading: '' ?></h1>
         <p><?php echo $mmbs_description ? $mmbs_description : '' ?></p>
 </div>
