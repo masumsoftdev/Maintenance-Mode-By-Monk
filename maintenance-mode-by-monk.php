@@ -35,7 +35,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
-		add_action( 'init', [$this, 'mmbm_maintenance_init'] );
+
+		$mmbs_condition = get_option( 'mmbm_maintenance_mode_enabled' );
+		if($mmbs_condition === 'true'){
+			add_action( 'init', [$this, 'mmbm_maintenance_init'] );
+		}
+	
 
 		add_action( 'admin_bar_menu', [$this, 'mmbm_admin_bar_menu'], 90 );
 		add_action( 'admin_menu', [$this, 'mmbm_admin_menu'] );

@@ -10,7 +10,7 @@ class Mmbm_Settings{
         ob_start();
         ?>
          <div class="wrap">
-            <h1 class="wp-heading-inline"> Maintenance Mode by MONK - Settings</h1>
+            <h1 class="wp-heading-inline"> Maintenance Mode by MONK - Settings </h1>
             <hr>
             <div>
                 <label class="switch">
@@ -33,12 +33,12 @@ class Mmbm_Settings{
                 <table class="form-table" role="presentation">
                     <tbody>
                         <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_heading">Maintenance Title:</label></th>
+                            <th scope="row"><label for="mmbm_maintenanace_heading"><?php __('Maintenance Title:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading" value="<?php echo $mmbs_heading ? $mmbs_heading:'' ?>" class="regular-text"></td>
                         </tr>
 
                         <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_description">Maintenance Description:</label></th>
+                            <th scope="row"><label for="mmbm_maintenanace_description"><?php __('Maintenance Description:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" value="<?php echo $mmbs_description ? $mmbs_description : '' ?>" class="regular-text"></td>
                         </tr>
                     </tbody>
