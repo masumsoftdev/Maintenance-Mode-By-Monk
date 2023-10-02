@@ -27,6 +27,7 @@ class Mmbm_Settings{
 
                 $mmbs_heading = stripslashes($mmbs_info['heading']);
                 $mmbs_description = stripslashes($mmbs_info['description']);
+                $logo_url = stripslashes($mmbs_info['logo_url']);
             ?>
 
             <form method="post" action="">
@@ -42,9 +43,21 @@ class Mmbm_Settings{
                             <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" value="<?php echo $mmbs_description ? $mmbs_description : '' ?>" class="regular-text"></td>
                         </tr>
                         <tr>
+                            <th scope="row"></th>  
+                            <td><img src="<?php
+                            if(isset($logo_url)){
+                                echo $logo_url;
+                            }else{
+                                echo MMBM_URL. 'admin/img/mmbm-no-logo-icon.png'; 
+                            }
+                             
+                             ?>" alt="" id="mmbm_logo_preview"></td>    
+                        </tr>
+
+                        <tr>
                             <th scope="row"><label for="mmbm_maintenanace_logo"><?php echo __('Maintenance Page Logo:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><button type="button" id="mmbm_maintenanace_logo"><?php echo __('Upload logo', 'maintenance-mode-by-monk') ?></button></td>
-                            <td><img src="" alt="" id="mmbm_logo_preview"></td>
+                           
                         </tr>
                     </tbody>
                 </table>

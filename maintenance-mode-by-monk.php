@@ -130,7 +130,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if($custom_action === 'send_input_values'){
 				$mmbm_options_data = [
 					'heading' => $_POST['heading'],
-					'description' => $_POST['description']
+					'description' => $_POST['description'],
+					'logo_url' => $_POST['logo_url']
 				];
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
 				echo 'Updated successfully.....';

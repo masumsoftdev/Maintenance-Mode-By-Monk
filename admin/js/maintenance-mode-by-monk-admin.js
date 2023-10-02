@@ -30,12 +30,14 @@
 
         var mmbm_maintenanace_heading = $('#mmbm_maintenanace_heading').val();
         var mmbm_maintenanace_description = $('#mmbm_maintenanace_description').val();
+        var mmbm_logo_preview_link = $('#mmbm_logo_preview').attr('src');
         var requestData = {
           action: 'mmbm_ajax_action',
           custom_action: custom_action,
           isChecked : isChecked,
           heading: mmbm_maintenanace_heading,
-          description: mmbm_maintenanace_description
+          description: mmbm_maintenanace_description,
+          logo_url: mmbm_logo_preview_link
         
         };
 
@@ -83,7 +85,6 @@
         .on("select", function (e) {
           var upload_image = image.state().get("selection").first();
           var imagejson = upload_image.toJSON();
-          console.log(imagejson.url);
           $("#mmbm_logo_preview").attr("src", imagejson.url);
           // jQuery("#book_cover_image").val(imagejson.url);
         });
