@@ -28,11 +28,11 @@
 
 
 <?php
-$mmbs_info = get_option( 'mmbm_maintenance_options' );
+    $mmbs_info = get_option( 'mmbm_maintenance_options' );
 
-$mmbs_heading = stripslashes($mmbs_info['heading']);
-$mmbs_description = stripslashes($mmbs_info['description']);
-$logo_url = stripslashes($mmbs_info['logo_url']);
+    $mmbs_heading = stripslashes($mmbs_info['heading']);
+    $mmbs_description = stripslashes($mmbs_info['description']);
+    $logo_url = stripslashes($mmbs_info['logo_url']);
 ?>
 
 <div id="mmbm-maintenance-mode">

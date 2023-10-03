@@ -34,12 +34,12 @@ class Mmbm_Settings{
                 <table class="form-table" role="presentation">
                     <tbody>
                         <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_heading"><?php echo __('Maintenance Title:', 'maintenance-mode-by-monk') ?></label></th>
+                            <th scope="row"><label for="mmbm_maintenanace_heading"><?php echo __('Title:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading" value="<?php echo $mmbs_heading ? $mmbs_heading:'' ?>" class="regular-text"></td>
                         </tr>
 
                         <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_description"><?php echo __('Maintenance Description:', 'maintenance-mode-by-monk') ?></label></th>
+                            <th scope="row"><label for="mmbm_maintenanace_description"><?php echo __('Description:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" value="<?php echo $mmbs_description ? $mmbs_description : '' ?>" class="regular-text"></td>
                         </tr>
                         <tr>
@@ -55,8 +55,13 @@ class Mmbm_Settings{
                         </tr>
 
                         <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_logo"><?php echo __('Maintenance Page Logo:', 'maintenance-mode-by-monk') ?></label></th>
-                            <td><button type="button" id="mmbm_maintenanace_logo"><?php echo __('Upload logo', 'maintenance-mode-by-monk') ?></button></td>
+                            <th scope="row"><label for="mmbm_maintenanace_logo"><?php echo __('Logo:', 'maintenance-mode-by-monk') ?></label></th>
+                            <td><button type="button" id="mmbm_maintenanace_logo"><?php echo __('Update logo', 'maintenance-mode-by-monk') ?></button></td>
+                           
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_bg_color"><?php echo __('Background Color:', 'maintenance-mode-by-monk') ?></label></th>
+                            <td> <input type="color" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>
                            
                         </tr>
                     </tbody>

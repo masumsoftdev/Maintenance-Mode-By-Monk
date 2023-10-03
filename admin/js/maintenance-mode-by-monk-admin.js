@@ -91,6 +91,12 @@
     });
  
 
+    // Set Trigger
+
+    $('#mmbm_logo_preview').click(function (){
+      $('#mmbm_maintenanace_logo').trigger('click');
+    });
+
  
 
 })( jQuery );
