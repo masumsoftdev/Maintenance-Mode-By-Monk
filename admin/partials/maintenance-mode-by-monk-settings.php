@@ -31,6 +31,8 @@ class Mmbm_Settings{
                 $bg_color = stripslashes($mmbs_info['bg_color']);
                 $title_color = stripslashes($mmbs_info['title_color']);
                 $description_color = stripslashes($mmbs_info['description_color']);
+                $description_color = stripslashes($mmbs_info['description_color']);
+                $datetime = stripslashes($mmbs_info['datetime']);
             ?>
 
             <form method="post" action="">
@@ -75,6 +77,11 @@ class Mmbm_Settings{
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_bg_color"><?php echo __('Background Color:', 'maintenance-mode-by-monk') ?></label></th>
                             <td> <input type="color" value="<?php echo $bg_color ? $bg_color : '' ?>" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>
+                           
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_datetime"><?php echo __('Keep in Maintenance until:', 'maintenance-mode-by-monk') ?></label></th>
+                            <td> <input type="datetime-local" value="<?php echo $datetime ? $datetime : '' ?>" name="mmbm_maintenanace_datetime" id="mmbm_maintenanace_datetime"> </td>
                            
                         </tr>
                     </tbody>

@@ -33,6 +33,7 @@
         var mmbm_maintenanace_bg_color = $('#mmbm_maintenanace_bg_color').val();
         var mmbm_maintenanace_title_color = $('#mmbm_maintenanace_title_color').val();
         var mmbm_maintenanace_description_color = $('#mmbm_maintenanace_description_color').val();
+        var mmbm_maintenanace_datetime = $('#mmbm_maintenanace_datetime').val();
         var mmbm_logo_preview_link = $('#mmbm_logo_preview').attr('src');
         var requestData = {
           action: 'mmbm_ajax_action',
@@ -43,7 +44,8 @@
           logo_url: mmbm_logo_preview_link,
           bg_color: mmbm_maintenanace_bg_color,
           title_color: mmbm_maintenanace_title_color,
-          description_color: mmbm_maintenanace_description_color
+          description_color: mmbm_maintenanace_description_color,
+          datetime: mmbm_maintenanace_datetime
         
         };
 
