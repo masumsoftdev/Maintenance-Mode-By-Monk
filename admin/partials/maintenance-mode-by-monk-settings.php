@@ -28,6 +28,7 @@ class Mmbm_Settings{
                 $mmbs_heading = stripslashes($mmbs_info['heading']);
                 $mmbs_description = stripslashes($mmbs_info['description']);
                 $logo_url = stripslashes($mmbs_info['logo_url']);
+                $bg_color = stripslashes($mmbs_info['bg_color']);
             ?>
 
             <form method="post" action="">

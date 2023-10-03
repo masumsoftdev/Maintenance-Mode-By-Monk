@@ -131,7 +131,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$mmbm_options_data = [
 					'heading' => $_POST['heading'],
 					'description' => $_POST['description'],
-					'logo_url' => $_POST['logo_url']
+					'logo_url' => $_POST['logo_url'],
+					'bg_color' => $_POST['bg_color']
 				];
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
 				echo 'Updated successfully.....';
