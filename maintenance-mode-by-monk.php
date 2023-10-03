@@ -132,7 +132,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'heading' => $_POST['heading'],
 					'description' => $_POST['description'],
 					'logo_url' => $_POST['logo_url'],
-					'bg_color' => $_POST['bg_color']
+					'bg_color' => $_POST['bg_color'],
+					'title_color' => $_POST['title_color'],
+					'description_color' => $_POST['description_color']
 				];
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
 				echo 'Updated successfully.....';

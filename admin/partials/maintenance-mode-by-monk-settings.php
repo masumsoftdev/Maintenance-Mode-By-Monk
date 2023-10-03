@@ -29,6 +29,8 @@ class Mmbm_Settings{
                 $mmbs_description = stripslashes($mmbs_info['description']);
                 $logo_url = stripslashes($mmbs_info['logo_url']);
                 $bg_color = stripslashes($mmbs_info['bg_color']);
+                $title_color = stripslashes($mmbs_info['title_color']);
+                $description_color = stripslashes($mmbs_info['description_color']);
             ?>
 
             <form method="post" action="">
@@ -38,10 +40,20 @@ class Mmbm_Settings{
                             <th scope="row"><label for="mmbm_maintenanace_heading"><?php echo __('Title:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_heading" type="text" id="mmbm_maintenanace_heading" value="<?php echo $mmbs_heading ? $mmbs_heading:'' ?>" class="regular-text"></td>
                         </tr>
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_title_color"><?php echo __('Title Color:', 'maintenance-mode-by-monk') ?></label></th>
+                            <td> <input type="color" value="<?php echo $title_color ? $title_color : '' ?>" name="mmbm_maintenanace_title_color" id="mmbm_maintenanace_title_color"> </td>
+                           
+                        </tr>
 
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_description"><?php echo __('Description:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><input name="mmbm_maintenanace_description" type="text" id="mmbm_maintenanace_description" value="<?php echo $mmbs_description ? $mmbs_description : '' ?>" class="regular-text"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="mmbm_maintenanace_description_color"><?php echo __('Description Color:', 'maintenance-mode-by-monk') ?></label></th>
+                            <td> <input type="color" value="<?php echo $description_color ? $description_color : '' ?>" name="mmbm_maintenanace_description_color" id="mmbm_maintenanace_description_color"> </td>
+                           
                         </tr>
                         <tr>
                             <th scope="row"></th>  
@@ -62,7 +74,7 @@ class Mmbm_Settings{
                         </tr>
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_bg_color"><?php echo __('Background Color:', 'maintenance-mode-by-monk') ?></label></th>
-                            <td> <input type="color" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>
+                            <td> <input type="color" value="<?php echo $bg_color ? $bg_color : '' ?>" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>
                            
                         </tr>
                     </tbody>
