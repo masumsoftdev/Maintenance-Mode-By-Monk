@@ -81,11 +81,18 @@ $description_color = stripslashes($mmbs_info['description_color']);
                 document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
         }, 1000);
+
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.key === "u") {
+            e.preventDefault();
+        }
+        });
     </script>
 </body>
 </html>
-
-
 
 <?php
 
