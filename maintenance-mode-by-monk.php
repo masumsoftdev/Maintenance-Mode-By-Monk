@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
  class Mmmbs_Maintenance_Mode_Main {
+
 	public function __construct(){
 		/** Initializing the Constants */
 		define( 'MMBM_URL', plugin_dir_url( __FILE__ ) );
@@ -27,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		/** Loading Assets */
 
-		// add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
+		add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
 		add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
 
 		add_filter('plugin_action_links_' . plugin_basename(__FILE__) , [$this, 'mmbm_plugin_settings_link']);
@@ -58,10 +59,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
 
 	/** Loading Public Assets */
-	// public function mmbm_public_assets_loading(){
-	// 	wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
-	// 	wp_enqueue_script( 'mmbm-public-scripts', MMBM_URL.'public/js/maintenance-mode-by-monk-public.js', ['jquery'], MMBM_VERSION, true );
-	// }
+	public function mmbm_public_assets_loading(){
+		// wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
+		wp_enqueue_script( 'mmbm-public-scripts', MMBM_URL.'public/js/maintenance-mode-by-monk-public.js', ['jquery'], MMBM_VERSION, true );
+	}
 
 	/** Loading Admin Assets */
 	public function mmbm_admin_assets_loading(){

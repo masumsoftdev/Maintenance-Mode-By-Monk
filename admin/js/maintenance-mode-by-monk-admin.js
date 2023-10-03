@@ -105,6 +105,9 @@
       $('#mmbm_maintenanace_logo').trigger('click');
     });
 
+
+
+
  
 
 })( jQuery );
