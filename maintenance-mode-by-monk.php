@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
 		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_object', [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'nonce'    	=> wp_create_nonce('mmbm_ajax_nonce')
+			'nonce'    => wp_create_nonce('mmbm_ajax_nonce')
 		] );
 		wp_enqueue_media();
 	}

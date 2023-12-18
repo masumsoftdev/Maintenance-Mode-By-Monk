@@ -23,16 +23,15 @@ class Mmbm_Settings{
 
         <div class="wrap mmbm_info_form">
             <?php
-                $mmbs_info = get_option( 'mmbm_maintenance_options' );
-
-                $mmbs_heading = stripslashes($mmbs_info['heading']);
-                $mmbs_description = stripslashes($mmbs_info['description']);
-                $logo_url = stripslashes($mmbs_info['logo_url']);
-                $bg_color = stripslashes($mmbs_info['bg_color']);
-                $title_color = stripslashes($mmbs_info['title_color']);
-                $description_color = stripslashes($mmbs_info['description_color']);
-                $description_color = stripslashes($mmbs_info['description_color']);
-                $datetime = stripslashes($mmbs_info['datetime']);
+                $mmbs_info         = get_option('mmbm_maintenance_options');
+                $mmbs_heading      = isset($mmbs_info['heading']) ? stripslashes($mmbs_info['heading']) : '';
+                $mmbs_description  = isset($mmbs_info['description']) ? stripslashes($mmbs_info['description']) : '';
+                $logo_url          = isset($mmbs_info['logo_url']) ? stripslashes($mmbs_info['logo_url']) : '';
+                $bg_color          = isset($mmbs_info['bg_color']) ? stripslashes($mmbs_info['bg_color']) : '';
+                $title_color       = isset($mmbs_info['title_color']) ? stripslashes($mmbs_info['title_color']) : '';
+                $description_color = isset($mmbs_info['description_color']) ? stripslashes($mmbs_info['description_color']) : '';
+                $datetime          = isset($mmbs_info['datetime']) ? stripslashes($mmbs_info['datetime']) : '';
+                
             ?>
 
             <form method="post" action="">
