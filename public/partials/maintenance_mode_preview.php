@@ -51,7 +51,6 @@
         <?php endif ?>
         <h1><?php echo $mmbs_heading ? $mmbs_heading: 'We are in Maintenance' ?></h1>
         <p><?php echo $mmbs_description ? $mmbs_description : 'Please check back later. Thank you for your patience!' ?></p>
-        <div id="countdown"></div>
     </div>
 
 </div>

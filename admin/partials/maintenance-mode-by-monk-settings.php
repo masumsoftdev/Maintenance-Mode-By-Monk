@@ -58,14 +58,16 @@ class Mmbm_Settings{
                         </tr>
                         <tr>
                             <th scope="row"></th>  
-                            <td><img src="<?php
+                            <td><img src="
+                            <?php
                             if(isset($logo_url)){
                                 echo $logo_url;
                             }else{
                                 echo MMBM_URL. 'admin/img/mmbm-no-logo-icon.png'; 
                             }
                              
-                             ?>" alt="" id="mmbm_logo_preview"></td>    
+                             ?>" alt="" id="mmbm_logo_preview">
+                             </td>    
                         </tr>
 
                         <tr>

@@ -12,6 +12,14 @@
             isEnable = true;
           }
         });
+
+        /** Removing Image */
+
+        $('#mmbm_remove_image').click(function () {
+            $('#mmbm_logo_preview').hide();
+            $(this).hide();
+        });
+
       });
 
     /** Ajax Data Save */
