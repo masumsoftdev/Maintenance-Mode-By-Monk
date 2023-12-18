@@ -75,13 +75,7 @@ class Mmbm_Settings{
                         </tr>
                         <tr>
                             <th scope="row"><label for="mmbm_maintenanace_bg_color"><?php echo __('Background Color:', 'maintenance-mode-by-monk') ?></label></th>
-                            <td> <input type="color" value="<?php echo $bg_color ? $bg_color : '' ?>" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>
-                           
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_datetime"><?php echo __('Keep in Maintenance until:', 'maintenance-mode-by-monk') ?></label></th>
-                            <td> <input type="datetime-local" value="<?php echo $datetime ? $datetime : '' ?>" name="mmbm_maintenanace_datetime" id="mmbm_maintenanace_datetime"> </td>
-                           
+                            <td> <input type="color" value="<?php echo $bg_color ? $bg_color : '' ?>" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>  
                         </tr>
                     </tbody>
                 </table>

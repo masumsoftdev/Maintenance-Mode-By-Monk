@@ -99,9 +99,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	public function mmbm_admin_bar_menu($mmbm_admin_bar){
 		$mmbm_admin_bar->add_menu(
 			array(
-				'id' => 'maintenance_mode_by_monk',
+				'id'    => 'maintenance_mode_by_monk',
 				'title' => __('Maintenance Mode by MONK', 'maintenance-mode-by-monk'),
-				'href' => admin_url('admin.php?page=maintenance-mode-by-monk')
+				'href'  => admin_url('admin.php?page=maintenance-mode-by-monk')
 			)
 		);
 		
@@ -142,7 +142,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
 				echo 'Updated successfully.....';
 			}
-	
 
 		exit;
 		
@@ -151,12 +150,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	public function mmbm_plugin_settings_link($links){
 		$menu_title = __('Settings', 'maintenance-mode-by-monk');
-		$links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=maintenance-mode-by-monk') ) .'">'. $menu_title .'</a>';  
-		return $links;
+		$links[]    = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=maintenance-mode-by-monk') ) .'">'. $menu_title .'</a>';
 		return $links;
 	}
 	
 	
  }
 
- new Mmmbs_Maintenance_Mode_Main();
+ 	new Mmmbs_Maintenance_Mode_Main();
