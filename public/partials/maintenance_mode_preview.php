@@ -48,7 +48,7 @@
     <div id="mmbm-maintenance-mode">
 
     <?php
-        if(isset( $mmbm_logo_url)){
+        if(isset( $mmbm_logo_url) && $mmbm_logo_url != ''){
 
     ?>
     <img src="
