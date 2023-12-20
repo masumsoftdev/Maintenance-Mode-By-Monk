@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Domain Path:       /languages
  */
 
- class Mmmbs_Maintenance_Mode_Main {
+ class Mmmbm_Maintenance_Mode_Main {
 
 	public function __construct(){
 		/** Initializing the Constants */
@@ -37,8 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**Hooks Defining */
 		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
 
-		$mmbs_condition = get_option( 'mmbm_maintenance_mode_enabled' );
-		if($mmbs_condition === 'true'){
+		$mmbm_condition = get_option( 'mmbm_maintenance_mode_enabled' );
+		if($mmbm_condition === 'true'){
 			add_action( 'init', [$this, 'mmbm_maintenance_init'] );
 		}
 	
@@ -109,9 +109,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	/** Admin Menu */
 	public function mmbm_admin_menu(){
-		add_menu_page( __('Maintenance Mode Settings', 'maintenance-mode-by-monk'), __('Maintanence', 'maintenance-mode-by-monk'), 'manage_options', 'maintenance-mode-by-monk', [$this, 'mmbs_add_submenu_page'], 'dashicons-controls-pause', '60' );
+		add_menu_page( __('Maintenance Mode Settings', 'maintenance-mode-by-monk'), __('Maintanence', 'maintenance-mode-by-monk'), 'manage_options', 'maintenance-mode-by-monk', [$this, 'mmbm_add_submenu_page'], 'dashicons-controls-pause', '60' );
 	}
-	public function mmbs_add_submenu_page(){
+	public function mmbm_add_submenu_page(){
 		require_once(MMBM_PATH.'admin/partials/maintenance-mode-by-monk-settings.php');
 		$markup =  Mmbm_Settings::mmbm_loading_settings_markup();
 		echo $markup;
@@ -157,4 +157,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
  }
 
- 	new Mmmbs_Maintenance_Mode_Main();
+ 	new Mmmbm_Maintenance_Mode_Main();
