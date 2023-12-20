@@ -23,7 +23,7 @@ class Mmbm_Settings{
 
         <div class="wrap mmbm_info_form">
             <?php
-                $mmbm_info         = get_option('mmbm_maintenance_options');
+                $mmbm_info              = get_option('mmbm_maintenance_options');
                 $mmbm_heading           = isset($mmbm_info['heading']) ? stripslashes($mmbm_info['heading']) : 'We are in Maintenance';
                 $mmbm_description       = isset($mmbm_info['description']) ? stripslashes($mmbm_info['description']) : 'Please check back later. Thank you for your patience!';
                 $mmbm_logo_url          = isset($mmbm_info['logo_url']) ? stripslashes($mmbm_info['logo_url']) : '';
@@ -67,7 +67,8 @@ class Mmbm_Settings{
                             }
                              
                              ?>" alt="" id="mmbm_logo_preview">
-                             </td>    
+                             </td>
+                             <td><button id="mmbm_remove_image">Remove Image</button></td>    
                         </tr>
 
                         <tr>

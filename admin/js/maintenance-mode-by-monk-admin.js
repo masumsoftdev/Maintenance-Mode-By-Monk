@@ -14,10 +14,15 @@
         });
 
         /** Removing Image */
+        
 
-        $('#mmbm_remove_image').click(function () {
-            $('#mmbm_logo_preview').hide();
-            $(this).hide();
+        console.log(mmbm_option_object.mmbm_no_url)
+
+        $('#mmbm_remove_image').click(function (e) {
+
+          e.preventDefault();
+          $('#mmbm_logo_preview').attr('src', `${mmbm_option_object.mmbm_no_url}`);
+  
         });
 
       });
