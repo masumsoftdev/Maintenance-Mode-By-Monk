@@ -10,7 +10,7 @@ class Mmbm_Settings{
         ob_start();
         ?>
          <div class="wrap">
-            <h1 class="wp-heading-inline"> Maintenance Mode by MONK - Settings </h1>
+         <h1 class="wp-heading-inline"><?php echo esc_html__( 'Maintenance Mode by MONK - Settings', 'maintenance-mode-by-monk' ); ?></h1
             <hr>
             <div>
                 <label class="mmbm_switch">
@@ -27,7 +27,6 @@ class Mmbm_Settings{
                 $mmbm_heading           = isset($mmbm_info['heading']) ? stripslashes($mmbm_info['heading']) : 'We are in Maintenance';
                 $mmbm_description       = isset($mmbm_info['description']) ? stripslashes($mmbm_info['description']) : 'Please check back later. Thank you for your patience!';
                 $mmbm_logo_url          = isset($mmbm_info['logo_url']) ? stripslashes($mmbm_info['logo_url']) : '';
-                $mmbm_bg_color          = isset($mmbm_info['bg_color']) ? stripslashes($mmbm_info['bg_color']) : '';
                 $mmbm_title_color       = isset($mmbm_info['title_color']) ? stripslashes($mmbm_info['title_color']) : '';
                 $mmbm_description_color = isset($mmbm_info['description_color']) ? stripslashes($mmbm_info['description_color']) : '';
                 
@@ -75,10 +74,6 @@ class Mmbm_Settings{
                             <th scope="row"><label for="mmbm_maintenanace_logo"><?php echo __('Logo:', 'maintenance-mode-by-monk') ?></label></th>
                             <td><button type="button" id="mmbm_maintenanace_logo"><?php echo __('Update logo', 'maintenance-mode-by-monk') ?></button></td>
                            
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="mmbm_maintenanace_bg_color"><?php echo __('Background Color:', 'maintenance-mode-by-monk') ?></label></th>
-                            <td> <input type="color" value="<?php echo $mmbm_bg_color; ?>" name="mmbm_maintenanace_bg_color" id="mmbm_maintenanace_bg_color"> </td>  
                         </tr>
                     </tbody>
                 </table>

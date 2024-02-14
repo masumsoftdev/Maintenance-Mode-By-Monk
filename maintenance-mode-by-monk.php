@@ -60,13 +60,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	/** Loading Public Assets */
 	public function mmbm_public_assets_loading(){
-		// wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
+		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'public/css/maintenance-mode-by-monk-public.css', [], MMBM_VERSION, 'all' );
 		wp_enqueue_script( 'mmbm-public-scripts', MMBM_URL.'public/js/maintenance-mode-by-monk-public.js', ['jquery'], MMBM_VERSION, true );
 	}
 
 	/** Loading Admin Assets */
 	public function mmbm_admin_assets_loading(){
-		wp_enqueue_style( 'mmbm-public-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
+		wp_enqueue_style( 'mmbm-admin-styles', MMBM_URL.'admin/css/maintenance-mode-by-monk-admin.css', [], MMBM_VERSION, 'all' );
 		wp_enqueue_script( 'mmbm-admin-scripts', MMBM_URL.'admin/js/maintenance-mode-by-monk-admin.js', ['jquery'], MMBM_VERSION, true );
 		wp_localize_script( 'mmbm-admin-scripts', 'mmbm_option_object', [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -127,21 +127,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 				
 				update_option('mmbm_maintenance_mode_enabled', $isChecked);
 				
-				echo 'Updated successfully.....';
+				_e('Updated successfully.....', 'maintenance-mode-by-monk');
 			}
 			if($custom_action === 'send_input_values'){
 				$mmbm_options_data = [
 					'heading'           => isset($_POST['heading']) ? $_POST['heading'] : '',
 					'description'       => isset($_POST['description']) ? $_POST['description'] : '',
 					'logo_url'          => isset($_POST['logo_url']) ? $_POST['logo_url'] : '',
-					'bg_color'          => isset($_POST['bg_color']) ? $_POST['bg_color'] : '',
 					'title_color'       => isset($_POST['title_color']) ? $_POST['title_color'] : '',
 					'description_color' => isset($_POST['description_color']) ? $_POST['description_color'] : '',
-					'datetime'          => isset($_POST['datetime']) ? $_POST['datetime'] : ''
 				];
 				
 				update_option('mmbm_maintenance_options', $mmbm_options_data);
-				echo 'Updated successfully.....';
+				_e('Updated successfully.....', 'maintenance-mode-by-monk');
 			}
 
 		exit;

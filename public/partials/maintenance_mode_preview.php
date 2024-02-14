@@ -5,17 +5,11 @@
     $mmbm_heading           = isset($mmbm_info['heading']) ? stripslashes($mmbm_info['heading']) : '';
     $mmbm_description       = isset($mmbm_info['description']) ? stripslashes($mmbm_info['description']) : '';
     $mmbm_logo_url          = isset($mmbm_info['logo_url']) ? stripslashes($mmbm_info['logo_url']) : '';
-    $mmbm_bg_color          = isset($mmbm_info['bg_color']) ? stripslashes($mmbm_info['bg_color']) : '';
     $mmbm_title_color       = isset($mmbm_info['title_color']) ? stripslashes($mmbm_info['title_color']) : '';
     $mmbm_description_color = isset($mmbm_info['description_color']) ? stripslashes($mmbm_info['description_color']) : '';
 
 ?>
-
-
 <style>
-    #mmbm_body_id {
-    background-color: <?php echo $mmbm_bg_color; ?>;
-    }
 
     #mmbm-maintenance-mode {
         position  : absolute;
@@ -26,8 +20,8 @@
     }
 
     #mmbm_logo_preview {
-        width : 100px;
-        height: 100px;
+        width : 200px;
+        height: 200px;
     }
 
     #mmbm-maintenance-mode h1 {
