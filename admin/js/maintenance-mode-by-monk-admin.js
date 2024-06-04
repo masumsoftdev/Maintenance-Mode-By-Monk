@@ -84,8 +84,6 @@
       });
     }
 
-
-
      //Manage the Image 
 
      $(document).on("click", "#mmbm_maintenanace_logo", function (e) {

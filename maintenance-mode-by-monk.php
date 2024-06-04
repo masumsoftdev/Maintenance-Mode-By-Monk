@@ -28,26 +28,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		/** Loading Assets */
 
-		add_action( 'wp_enqueue_scripts', [$this, 'mmbm_public_assets_loading'] );
-		add_action( 'admin_enqueue_scripts', [$this, 'mmbm_admin_assets_loading'] );
+		add_action( 'wp_enqueue_scripts', array($this, 'mmbm_public_assets_loading') );
+		add_action( 'admin_enqueue_scripts', array($this, 'mmbm_admin_assets_loading') );
 
-		add_filter('plugin_action_links_' . plugin_basename(__FILE__) , [$this, 'mmbm_plugin_settings_link']);
+		add_filter('plugin_action_links_' . plugin_basename(__FILE__) , array($this, 'mmbm_plugin_settings_link'));
 
 
 		/**Hooks Defining */
-		add_action( 'plugins_loaded', [$this, 'mmbm_plugins_loaded'] );
+		add_action( 'plugins_loaded', array($this, 'mmbm_plugins_loaded') );
 
 		$mmbm_condition = get_option( 'mmbm_maintenance_mode_enabled' );
 		if($mmbm_condition === 'true'){
-			add_action( 'init', [$this, 'mmbm_maintenance_init'] );
+			add_action( 'init', array($this, 'mmbm_maintenance_init') );
 		}
 	
 
-		add_action( 'admin_bar_menu', [$this, 'mmbm_admin_bar_menu'], 90 );
-		add_action( 'admin_menu', [$this, 'mmbm_admin_menu'] );
+		add_action( 'admin_bar_menu', array($this, 'mmbm_admin_bar_menu'), 90 );
+		add_action( 'admin_menu', array($this, 'mmbm_admin_menu') );
 
-		add_action( 'wp_ajax_mmbm_ajax_action', [$this, 'mmbm_ajax_action_callback'] );
-        add_action( 'wp_ajax_nopriv_mmbm_ajax_action', [$this, 'mmbm_ajax_action_callback'] );
+		add_action( 'wp_ajax_mmbm_ajax_action', array($this, 'mmbm_ajax_action_callback') );
+        add_action( 'wp_ajax_nopriv_mmbm_ajax_action', array($this, 'mmbm_ajax_action_callback') );
 	}
 
 
@@ -120,27 +120,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	public function mmbm_ajax_action_callback(){
 
-			$custom_action = $_POST['custom_action'];
-			if($custom_action === 'enable_disable'){
-				
-				$isChecked = $_POST['isChecked'];
-				
-				update_option('mmbm_maintenance_mode_enabled', $isChecked);
-				
-				_e('Updated successfully.....', 'maintenance-mode-by-monk');
-			}
-			if($custom_action === 'send_input_values'){
-				$mmbm_options_data = [
-					'heading'           => isset($_POST['heading']) ? $_POST['heading'] : '',
-					'description'       => isset($_POST['description']) ? $_POST['description'] : '',
-					'logo_url'          => isset($_POST['logo_url']) ? $_POST['logo_url'] : '',
-					'title_color'       => isset($_POST['title_color']) ? $_POST['title_color'] : '',
-					'description_color' => isset($_POST['description_color']) ? $_POST['description_color'] : '',
-				];
-				
-				update_option('mmbm_maintenance_options', $mmbm_options_data);
-				_e('Updated successfully.....', 'maintenance-mode-by-monk');
-			}
+		$custom_action = $_POST['custom_action'];
+		if($custom_action === 'enable_disable'){
+			
+			$isChecked = $_POST['isChecked'];
+			
+			update_option('mmbm_maintenance_mode_enabled', $isChecked);
+			
+			_e('Updated successfully.....', 'maintenance-mode-by-monk');
+		}
+		if($custom_action === 'send_input_values'){
+			$mmbm_options_data = [
+				'heading'           => isset($_POST['heading']) ? $_POST['heading'] : '',
+				'description'       => isset($_POST['description']) ? $_POST['description'] : '',
+				'logo_url'          => isset($_POST['logo_url']) ? $_POST['logo_url'] : '',
+				'title_color'       => isset($_POST['title_color']) ? $_POST['title_color'] : '',
+				'description_color' => isset($_POST['description_color']) ? $_POST['description_color'] : '',
+			];
+			
+			update_option('mmbm_maintenance_options', $mmbm_options_data);
+			_e('Updated successfully.....', 'maintenance-mode-by-monk');
+		}
 
 		exit;
 		
@@ -156,4 +156,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
  }
 
- 	new Mmmbm_Maintenance_Mode_Main();
+new Mmmbm_Maintenance_Mode_Main();

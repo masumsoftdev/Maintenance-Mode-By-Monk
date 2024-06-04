@@ -82,8 +82,7 @@ class Mmbm_Settings{
             </form>    
         </div>
         <?php 
-
-       
+        
         $markup = ob_get_clean();
 
         return $markup;
